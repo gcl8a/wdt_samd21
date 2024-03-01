@@ -58,13 +58,13 @@ void wdt_init ( unsigned long wdt_config_per ) {
                       GCLK_GENCTRL_SRC_OSCULP32K |   // Set the clock source to the ultra low power oscillator (OSCULP32K)
                       GCLK_GENCTRL_ID ( 2 );         // Select GCLK2
    while ( GCLK->STATUS.bit.SYNCBUSY );              // Wait for synchronization
-   //
+   
    // Feed GCLK2 to WDT (Watchdog Timer)
    REG_GCLK_CLKCTRL = GCLK_CLKCTRL_CLKEN |           // Enable GCLK2 to the WDT
                       GCLK_CLKCTRL_GEN_GCLK2 |       // Select GCLK2
                       GCLK_CLKCTRL_ID_WDT;           // Feed the GCLK2 to the WDT
    while ( GCLK->STATUS.bit.SYNCBUSY );              // Wait for synchronization
-   //
+   
    // Set and Enable the WDT
    REG_WDT_CONFIG = wdt_config_per;                  // Set the WDT reset timeout
    while ( WDT->STATUS.bit.SYNCBUSY );               // Wait for synchronization

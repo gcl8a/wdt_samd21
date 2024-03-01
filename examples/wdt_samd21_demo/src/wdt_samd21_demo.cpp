@@ -11,6 +11,8 @@ void setup()
    {
       delay ( 100 );
    }
+
+   Serial.println(REG_PM_RCAUSE, HEX);
    
    // Initialze WDT with a 2 sec. timeout
    wdt_init ( WDT_CONFIG_PER_2K );
