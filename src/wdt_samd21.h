@@ -58,4 +58,6 @@ void wdt_disable ( void );
 
 void wdt_reEnable ( void );
 
+bool wdt_check_reset(void) {return REG_PM_RCAUSE & 0x20;}
+
 #endif
