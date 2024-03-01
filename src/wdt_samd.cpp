@@ -101,3 +101,5 @@ void wdt_reEnable ( void ) {
    REG_WDT_CTRL = WDT_CTRL_ENABLE;                   // Enable the WDT in normal mode
    while ( WDT->STATUS.bit.SYNCBUSY );               // Wait for synchronization
 }
+
+bool wdt_check_reset(void) {return REG_PM_RCAUSE & 0x20;}
